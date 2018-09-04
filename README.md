@@ -30,4 +30,5 @@ Objects describe the objects within the system, and Messages describe how those 
 | Docking station | Release bike |
 
 
-|Person| <-> |Docking Station| <-> | Bike|
+1.|Person| --Use--> |Docking station| --Release Bike--> |Bike|
+2.|person| --Use--> |Bike| <--Working?--> <--false/True--> |Docking Station| --Release Bike-->|Boris_Bikes|
