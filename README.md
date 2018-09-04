@@ -28,3 +28,6 @@ Objects describe the objects within the system, and Messages describe how those 
 | Person |  |
 | Bike | Working? |
 | Docking station | Release bike |
+
+
+|Person| <-> |Docking Station| <-> | Bike|
