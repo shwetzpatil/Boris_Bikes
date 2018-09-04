@@ -31,4 +31,24 @@ Objects describe the objects within the system, and Messages describe how those 
 
 
 1.|Person| --Use--> |Docking station| --Release Bike--> |Bike|
+
 2.|person| --Use--> |Bike| <--Working?--> <--false/True--> |Docking Station| --Release Bike-->|Boris_Bikes|
+
+##4. Errors are good ##
+
+Error received:
+
+Traceback (most recent call last):
+        2: from /Users/shwetapatil/.rvm/rubies/ruby-2.5.1/bin/irb:11:i<main>
+        1: from (irb):1
+NameError (uninitialized constant DockingStation)
+
+Type of error: uninitialized constant
+
+error file path: /Users/shwetapatil/.rvm/rubies/ruby-2.5.1/bin/irb:11:i<main>
+
+Error line number: 1
+
+The error appears because the constant is not part of any pre defined Ruby class.
+
+To solve the error we can change the constant to a string.
