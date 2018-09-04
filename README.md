@@ -16,3 +16,15 @@ Objects describe the objects within the system, and Messages describe how those 
 | --- | --- | --- | --- |
 | Example 1 | Person, Bike, Docking station | Use, Release|
 | Example 2 | Person,Bike |Use, Work|
+
+| objects | Messages |
+| --- | --- |
+| Person |  |
+| Bike | Use |
+| Docking station | Release bike |
+
+| objects | Messages |
+| --- | --- |
+| Person |  |
+| Bike | Working? |
+| Docking station | Release bike |
