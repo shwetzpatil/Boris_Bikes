@@ -13,6 +13,6 @@ To help structure your work, here are 22 challenges. They all build on one anoth
 Objects describe the objects within the system, and Messages describe how those objects interact. We call these systems Domain Models
 
 | Sr.No | Nouns | Verbs |
-| ---     | ---   | ---   | ---   |
+| --- | --- | --- | --- |
 | Example 1 | Person, Bike, Docking station | Use, Release|
 | Example 2 | Person,Bike |Use, Work|
