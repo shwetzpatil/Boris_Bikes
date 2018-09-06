@@ -15,6 +15,7 @@ describe DockingStation do
  it { is_expected.to respond_to(:capacity) }
 
  describe "#initialize" do
+
    it "sets default capacity as 20" do
      docking_station = DockingStation.new
      expect(docking_station.capacity).to eq(20)
@@ -44,6 +45,15 @@ describe DockingStation do
    it 'raises an error when there are no bikes available' do
       expect { subject.release_bike }.to raise_error 'No bikes available'
    end
+
+   it 'should not release a broken bike' do
+     working_bike = Bike.new
+     subject.dock(working_bike)
+     broken_bike = Bike.new
+     broken_bike.report_broken
+     subject.dock(broken_bike)
+     expect(subject.release_bike).to eq(working_bike)
+   end
  end
 
  describe '#dock' do
@@ -53,14 +63,20 @@ describe DockingStation do
      expect(subject.bikes).to eq subject.bikes # bikes is method from attr_reader
    end
 
+   let(:bike) { Bike.new }
    it 'raises error when dock station is full' do
      # bike = Bike.new
      # subject.dock(bike)
      # bike2 = Bike.new
+     described_class::DEFAULT_CAPACITY.times {subject.dock(bike)}
+     expect{ subject.dock(bike)}.to raise_error "Dock station is full"
+   end
 
-     described_class::DEFAULT_CAPACITY.times {subject.dock(Bike.new)}
-
-     expect { subject.dock(Bike.new)}.to raise_error "Dock station is full"
+   it 'docks broken bike' do
+     bike = Bike.new
+     broken_bike = bike.report_broken
+     subject.dock(broken_bike)
+     expect(subject.bikes).to include(broken_bike)
    end
  end
 end
